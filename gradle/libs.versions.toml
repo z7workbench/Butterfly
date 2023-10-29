@@ -15,9 +15,10 @@ moshi-kotlin-codegen = "1.14.0"
 navigation-compose = "2.7.4"
 org-eclipse-jgit = "6.6.0.202305301015-r"
 ksp = "1.9.10-1.0.13"
-room-compiler = "2.6.0"
-room-runtime = "2.6.0"
+room = "2.6.0"
 media3 = "1.1.1"
+media3-ui = "1.1.1"
+work-runtime-ktx = "2.8.1"
 
 [libraries]
 accompanist-adaptive = { module = "com.google.accompanist:accompanist-adaptive", version.ref = "accompanist-insets" }
@@ -28,8 +29,9 @@ accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-
 accompanist-insets-ui = { module = "com.google.accompanist:accompanist-insets-ui", version.ref = "accompanist-insets" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore-preferences" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
-androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-compiler" }
-androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-runtime" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
@@ -54,6 +56,9 @@ media3-exoplayer-base = { group = "androidx.media3", name = "media3-exoplayer", 
 media3-exoplayer-dash = { group = "androidx.media3", name = "media3-exoplayer-dash", version.ref = "media3" }
 media3-exoplayer-hls = { group = "androidx.media3", name = "media3-exoplayer-hls", version.ref = "media3" }
 media3-exoplayer-rtsp = { group = "androidx.media3", name = "media3-exoplayer-rtsp", version.ref = "media3" }
+media3-session = { group = "androidx.media3", name = "media3-session", version.ref = "media3" }
+media3-ui = { group = "androidx.media3", name = "media3-ui", version.ref = "media3" }
+androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work-runtime-ktx" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -61,5 +66,6 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 [bundles]
-media3 = ["media3-exoplayer-base", "media3-exoplayer-dash", "media3-exoplayer-hls", "media3-exoplayer-rtsp"]
+media3 = ["media3-exoplayer-base", "media3-exoplayer-dash", "media3-exoplayer-hls", "media3-exoplayer-rtsp", "media3-session", "media3-ui"]
+room = ["androidx-room-ktx", "androidx-room-runtime"]
 

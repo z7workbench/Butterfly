@@ -81,10 +81,11 @@ dependencies {
     implementation(libs.ksp)
 
     // Android Jetpack
-    implementation(libs.androidx.room.runtime)
+    implementation(libs.bundles.room)
     ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.work.runtime.ktx)
 
     // Third party
     implementation(libs.moshi)
