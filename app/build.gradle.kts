@@ -79,6 +79,7 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
     implementation(libs.ksp)
+    implementation(libs.kotlinx.serialization.json)
 
     // Android Jetpack
     implementation(libs.bundles.room)
