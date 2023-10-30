@@ -1,7 +1,11 @@
 package top.z7workbench.butterfly.model
 
+import android.content.ContentUris
+import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
+import android.provider.MediaStore
+import android.util.Size
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -17,6 +21,26 @@ data class AudioData(
     val size: Long = 0,
     val uri: String
 ) {
+    fun albumBitmap(context: Context): Bitmap? {
+        if (album == null) {
+            return null
+        }
+        val contentUri = ContentUris.withAppendedId(
+            MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI,
+            album
+        )
+        return try {
+            context.contentResolver.loadThumbnail(
+                contentUri, Size(640, 480), null
+            )
+        } catch (e: Exception) {
+            return null
+        }
+    }
+
+    val trueUri: Uri
+        get() = Uri.parse(uri)
+
     override fun equals(other: Any?): Boolean {
         if (other !is AudioData) return false
         return id == other.id && name == other.name && singer == other.singer

@@ -1,12 +1,9 @@
 package top.z7workbench.butterfly.model
 
-import android.content.ContentUris
 import android.content.Context
-import android.graphics.Bitmap
 import android.net.Uri
 import android.provider.MediaStore
 import android.util.Log
-import android.util.Size
 import top.z7workbench.butterfly.app
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
@@ -58,20 +55,6 @@ object AudioUtil {
                 }
             } while (cursor.moveToNext())
             return list
-        }
-    }
-
-    private fun getAlbum(context: Context, id: Long): Bitmap? {
-        val contentUri = ContentUris.withAppendedId(
-            MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI,
-            id
-        )
-        return try {
-            context.contentResolver.loadThumbnail(
-                contentUri, Size(640, 480), null
-            )
-        } catch (e: Exception) {
-            return null
         }
     }
 
