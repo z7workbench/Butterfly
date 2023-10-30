@@ -1,4 +1,4 @@
-package top.z7workbench.butterfly.model
+package top.z7workbench.butterfly.audios
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

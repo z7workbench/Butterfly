@@ -1,4 +1,4 @@
-package top.z7workbench.butterfly.model
+package top.z7workbench.butterfly.audios
 
 import android.content.Context
 import android.net.Uri

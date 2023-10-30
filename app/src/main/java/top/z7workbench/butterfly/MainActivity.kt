@@ -3,7 +3,6 @@ package top.z7workbench.butterfly
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -21,11 +20,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.work.WorkManager
 import kotlinx.coroutines.launch
-import top.z7workbench.butterfly.model.AudioData
-import top.z7workbench.butterfly.model.AudioUtil
+import top.z7workbench.butterfly.audios.AudioData
+import top.z7workbench.butterfly.audios.AudioUtil
 import top.z7workbench.butterfly.ui.theme.ButterflyTheme
 
 class MainActivity : ComponentActivity() {

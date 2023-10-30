@@ -2,7 +2,7 @@ package top.z7workbench.butterfly
 
 import android.app.Application
 import androidx.room.Room
-import top.z7workbench.butterfly.model.AudioDatabase
+import top.z7workbench.butterfly.audios.AudioDatabase
 
 class Butterfly: Application() {
     val audioDatabase: AudioDatabase
