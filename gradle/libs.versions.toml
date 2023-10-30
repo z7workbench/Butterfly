@@ -1,7 +1,9 @@
 [versions]
-accompanist-insets = "0.30.1"
+accompanist = "0.30.1"
 agp = "8.3.0-alpha11"
+coil-compose = "2.4.0"
 datastore-preferences = "1.0.0"
+glide = "5.0.0-rc01"
 kotlin = "1.9.10"
 core-ktx = "1.12.0"
 junit = "4.13.2"
@@ -22,18 +24,20 @@ media3-ui = "1.1.1"
 work-runtime-ktx = "2.8.1"
 
 [libraries]
-accompanist-adaptive = { module = "com.google.accompanist:accompanist-adaptive", version.ref = "accompanist-insets" }
-accompanist-insets = { module = "com.google.accompanist:accompanist-insets", version.ref = "accompanist-insets" }
-accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist-insets" }
-accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist-insets" }
-accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist-insets" }
-accompanist-insets-ui = { module = "com.google.accompanist:accompanist-insets-ui", version.ref = "accompanist-insets" }
+accompanist-adaptive = { module = "com.google.accompanist:accompanist-adaptive", version.ref = "accompanist" }
+accompanist-insets = { module = "com.google.accompanist:accompanist-insets", version.ref = "accompanist" }
+accompanist-webview = { module = "com.google.accompanist:accompanist-webview", version.ref = "accompanist" }
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
+accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
+accompanist-insets-ui = { module = "com.google.accompanist:accompanist-insets-ui", version.ref = "accompanist" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore-preferences" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }

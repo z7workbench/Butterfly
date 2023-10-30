@@ -91,7 +91,8 @@ dependencies {
     // Third party
     implementation(libs.moshi)
     ksp(libs.moshi.kotlin.codegen)
-    implementation(libs.org.eclipse.jgit)
+    implementation(libs.coil.compose)
+    implementation(libs.glide)
 
     // Accompanist
     implementation(libs.accompanist.insets)

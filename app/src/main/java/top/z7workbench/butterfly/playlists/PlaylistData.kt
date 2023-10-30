@@ -9,10 +9,10 @@ import kotlinx.serialization.json.Json
 @Entity(tableName = "playlist")
 data class PlaylistData(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val name: String,
-    val desc: String,
-    val songs: String
+    val id: Int = 0,
+    val name: String = "",
+    val desc: String = "",
+    val songs: String = "[]"
 ) {
     val songList: List<Int>
         get() = Json.decodeFromString<List<Int>>(songs)

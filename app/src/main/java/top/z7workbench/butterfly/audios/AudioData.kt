@@ -12,14 +12,14 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "audio")
 data class AudioData(
     @PrimaryKey(autoGenerate = false)
-    val id: Int = 0,
-    val name: String? = null,
-    val singer: String? = null,
-    val album: Long? = null,
-    val path: String? = null,
-    val duration: Long = 0,
-    val size: Long = 0,
-    val uri: String
+    var id: Int = 0,
+    var name: String? = null,
+    var singer: String? = null,
+    var album: Long? = null,
+    var path: String? = null,
+    var duration: Long = 0,
+    var size: Long = 0,
+    var uri: String = ""
 ) {
     fun albumBitmap(context: Context): Bitmap? {
         if (album == null) {
@@ -27,10 +27,9 @@ data class AudioData(
         }
         val contentUri = ContentUris.withAppendedId(
             MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI,
-            album
+            album ?: 0
         )
-        return try {
-            context.contentResolver.loadThumbnail(
+        return try {context.contentResolver.loadThumbnail(
                 contentUri, Size(640, 480), null
             )
         } catch (e: Exception) {
