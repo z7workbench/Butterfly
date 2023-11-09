@@ -95,7 +95,6 @@ dependencies {
     implementation(libs.glide)
 
     // Accompanist
-    implementation(libs.accompanist.insets)
     implementation(libs.accompanist.insets.ui)
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.accompanist.permissions)
