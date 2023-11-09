@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 import top.z7workbench.butterfly.audios.AudioUtil
 import top.z7workbench.butterfly.ui.theme.ButterflyTheme
 
-class MainActivity : ComponentActivity() {
+class PupaShell : ComponentActivity() {
     private val viewModel by viewModels<AudioViewModel>()
 
     private val requestPermissionLauncher =
@@ -30,8 +30,8 @@ class MainActivity : ComponentActivity() {
             if (isGranted) {
                 val scope = CoroutineScope(Dispatchers.IO)
                 scope.launch {
-                    AudioUtil.checkAndUpdateDatabase(this@MainActivity)
-                    viewModel.reloadAudio(context = this@MainActivity)
+                    AudioUtil.checkAndUpdateDatabase(this@PupaShell)
+                    viewModel.reloadAudio(context = this@PupaShell)
                 }
             } else {
                 // TODO
@@ -45,10 +45,10 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 LaunchedEffect(Unit) {
                     checkAudioPermission(
-                        context = this@MainActivity,
+                        context = this@PupaShell,
                         doSuccessful = {
                             this.launch {
-                                viewModel.reloadAudio(context = this@MainActivity)
+                                viewModel.reloadAudio(context = this@PupaShell)
                             }
                         },
                         doFailure = {
