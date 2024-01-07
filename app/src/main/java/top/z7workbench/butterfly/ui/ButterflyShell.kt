@@ -2,6 +2,7 @@ package top.z7workbench.butterfly.ui
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,13 +15,16 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.core.content.ContextCompat
+import androidx.media3.common.util.UnstableApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import top.z7workbench.butterfly.audios.AudioUtil
+import top.z7workbench.butterfly.playback.ButterflyMediaService
 import top.z7workbench.butterfly.ui.theme.ButterflyTheme
 
-class PupaShell : ComponentActivity() {
+@UnstableApi
+class ButterflyShell : ComponentActivity() {
     private val viewModel by viewModels<AudioViewModel>()
 
     private val requestPermissionLauncher =
@@ -30,8 +34,8 @@ class PupaShell : ComponentActivity() {
             if (isGranted) {
                 val scope = CoroutineScope(Dispatchers.IO)
                 scope.launch {
-                    AudioUtil.checkAndUpdateDatabase(this@PupaShell)
-                    viewModel.reloadAudio(context = this@PupaShell)
+                    AudioUtil.checkAndUpdateDatabase(this@ButterflyShell)
+                    viewModel.reloadAudio(context = this@ButterflyShell)
                 }
             } else {
                 // TODO
@@ -40,15 +44,16 @@ class PupaShell : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        startService(Intent(this, ButterflyMediaService::class.java))
         setContent {
             ButterflyTheme {
                 // A surface container using the 'background' color from the theme
                 LaunchedEffect(Unit) {
                     checkAudioPermission(
-                        context = this@PupaShell,
+                        context = this@ButterflyShell,
                         doSuccessful = {
                             this.launch {
-                                viewModel.reloadAudio(context = this@PupaShell)
+                                viewModel.reloadAudio(context = this@ButterflyShell)
                             }
                         },
                         doFailure = {

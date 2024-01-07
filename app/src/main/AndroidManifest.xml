@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
@@ -14,8 +15,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Butterfly">
+        <service
+            android:name=".playback.ButterflyMediaService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="mediaPlayback">
+            <intent-filter>
+                <action android:name="androidx.media3.session.MediaLibraryService" />
+            </intent-filter>
+        </service>
+
         <activity
-            android:name=".ui.PupaShell"
+            android:name=".ui.ButterflyShell"
             android:exported="true"
             android:theme="@style/Theme.Butterfly">
             <intent-filter>

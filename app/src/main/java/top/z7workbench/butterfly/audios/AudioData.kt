@@ -7,6 +7,7 @@ import android.net.Uri
 import android.provider.MediaStore
 import android.util.Size
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "audio")
